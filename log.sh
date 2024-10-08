@@ -8,4 +8,4 @@ elif docker --help | grep -q "compose"; then
 fi
 
 cd ~/tora
-$docker_compose logs -f -t 1000
+$docker_compose logs -f -n 1000
