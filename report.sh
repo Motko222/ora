@@ -8,12 +8,12 @@ source ~/.bash_profile
 chain=?
 network=?
 version=?
-container=$(docker ps | grep $folder | awk '{print $NF}')
+container=$(docker ps | grep ora-tora | awk '{print $NF}')
 [ $container ] && docker_status=$(docker inspect $container | jq -r .[].State.Status)
 
 case $docker_status in
   running) status=ok; message="..." ;;
-  *) status="warning"; message="..." ;;
+  *) status="error"; message="docker not running" ;;
 esac
 
 cat >$json << EOF
